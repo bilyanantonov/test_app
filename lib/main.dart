@@ -23,6 +23,7 @@ class Home extends StatefulWidget {
 class HomeState extends State {
   List<Widget> _commentCards = [commentCard(), commentCard()];
   bool showAll = false;
+  String buttonText="SEE MORE COMMENTS";
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +67,7 @@ class HomeState extends State {
             shape: new RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(30.0)),
             child: Text(
-              'SEE MORE COMMENTS',
+              buttonText,
               style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w300,
@@ -79,11 +80,13 @@ class HomeState extends State {
                     _commentCards.add(commentCard());
                   }
                   showAll = true;
+                  buttonText="SEE LESS COMMENTS";
                 } else {
                   for (var i = 0; i < 3; i++) {
                     _commentCards.removeLast();
                   }
                   showAll = false;
+                  buttonText="SEE MORE COMMENTS";
                 }
               });
 
